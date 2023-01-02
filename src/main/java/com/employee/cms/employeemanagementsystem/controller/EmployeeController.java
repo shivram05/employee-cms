@@ -24,7 +24,8 @@ public class EmployeeController {
     @GetMapping("/")
     public String viewHomePage(Model model){
 //        model.addAttribute("listEmployees",employeeService.getAllEmployees());
-//        return "index";
+//        return "index";"
+        System.out.println("printing " + model);
        return findPaginated(1,model);
     }
 
@@ -68,6 +69,7 @@ public class EmployeeController {
         int pageSize = 5;
         Page<Employee> page = employeeService.findPaginated(pageNo,pageSize);
         List<Employee> employeeList = page.getContent();
+        System.out.println("employeelsitdat" + employeeList);
         model.addAttribute("currentPage",pageNo);
         model.addAttribute("totalPages",page.getTotalPages());
         model.addAttribute("totalItems",page.getTotalElements());
